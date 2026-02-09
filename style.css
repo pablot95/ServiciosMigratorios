@@ -93,7 +93,6 @@ ul {
     padding: 10px 0;
     display: flex;
     align-items: center;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
 }
 
 .nav-container {
@@ -111,7 +110,6 @@ ul {
     z-index: 1100;
     /* Efecto "Colgante" - Badge */
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .logo-img {
@@ -122,9 +120,6 @@ ul {
     transition: transform 0.3s ease;
 }
 
-.logo:hover .logo-img {
-    transform: scale(1.05);
-}
 
 .navbar {
     margin-right: 40px; /* Margen para separar del borde derecho o hamburguesa */
@@ -551,6 +546,20 @@ ul {
 
     .hero-content h1 {
         font-size: 2rem;
+    }
+    .hero::before{
+        background-image: url(images/plazaespaniacelu.jpg);
+    }
+    .services-grid{
+        grid-template-columns: 1fr;
+    }
+    .service-card {
+        width: 100%;
+    }
+    .logo {
+        top: 5px;
+        left: 20px;
+        border: none;
     }
 }
 /* Update: Images for flags */
