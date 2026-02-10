@@ -404,19 +404,36 @@ ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Desktop: Ajuste específico para 7 elementos en formato 3-3-1 */
+@media (min-width: 1024px) {
+    .features-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .features-list li:nth-child(7) {
+        grid-column: 2; /* Centrar el último elemento en la grilla de 3 columnas */
+        width: 500px;
+    }
 }
 
 .features-list li {
     font-size: 1.1rem;
     display: flex;
-    align-items: center;
-    gap: 15px;
-    color: #E2E8F0;
+    align-items: flex-start; /* Alineado al inicio para textos largos */
+    gap: 5px;
+    color: var(--color-white); /* Blanco puro para mejor contraste */
+    line-height: 1.5; /* Altura de línea para legibilidad */
 }
 
 .features-list i {
-    color: var(--accent-color);
+    color: var(--color-gold-main); /* Iconos dorados */
     font-size: 1.2rem;
+    margin-top: 4px; /* Ajuste visual para alinear con la primera línea de texto */
+    flex-shrink: 0; /* Evita que el icono se aplaste */
 }
 
 /* Argentina y USA Rediseñado */
