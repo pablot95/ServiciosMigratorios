@@ -6,23 +6,46 @@
 }
 
 :root {
-    --color-red: #C60B1E; /* Rojo España - Protagonista */
-    --color-dark-red: #B1121A;
-    --color-yellow: #F1BF00; /* Amarillo/Dorado */
-    --color-paper: #F6F1E9; /* Blanco papel / Crema - Fondo */
-    --color-white: #FFFFFF;
-    --color-text-main: #1F1F1F; /* Negro suave - Texto principal */
-    --color-text-light: #3A3A3A; /* Gris oscuro */
-    --color-beige: #E8DDCF; /* Sepia - Papelería */
-    --color-blue: #2F5FA7; /* Azul secundario */
+    /* Nueva Paleta: Luz Migratoria */
     
-    /* Alias funcionales para mantener consistencia con el código existente */
-    --primary-color: var(--color-text-main); 
-    --accent-color: var(--color-red); /* El rojo es el nuevo acento fuerte */
-    --bg-color: var(--color-paper);
+    /* Dorado - Principal */
+    --color-gold-main: #C9B37A;
+    --color-gold-light: #D8C58E;
+    --color-gold-dark: #BFA56A;
+    
+    /* Verde Salvia - Secundario */
+    --color-green-sage: #7F948E;
+    --color-green-light: #8FA39D;
+    --color-green-dark: #6F857F;
+    
+    /* Neutros */
+    --color-ivory: #F7F7F5; /* Marfil suave */
+    --color-white: #FFFFFF;
+    --color-grey-dark: #3F3F3F; /* Tipografía principal */
+    --color-grey-medium: #4A4A4A;
+    
+    /* Mapeo a sistema existente */
+    --color-red: var(--color-green-sage); /* Reemplazamos acentos rojos por verde salvia */
+    --color-dark-red: var(--color-green-dark);
+    --color-yellow: var(--color-gold-main);
+    
+    --color-paper: var(--color-ivory);
+    --color-text-main: var(--color-grey-dark);
+    --color-text-light: var(--color-grey-medium);
+    --color-beige: var(--color-ivory);
+    
+    /* El azul lo llevamos hacia el verde oscuro o el dorado oscuro? 
+       Si son servicios legales, el verde oscuro da seriedad. */
+    --color-blue: var(--color-green-dark);
+
+    /* Funcionales */
+    --primary-color: var(--color-gold-main); 
+    --accent-color: var(--color-green-sage);
+    --bg-color: var(--color-white);
+    
     --white: var(--color-white);
-    --card-shadow: 0 10px 30px -5px rgba(31, 31, 31, 0.1);
-    --border-radius-lg: 12px; /* Un poco menos redondeado para ser más "documento" */
+    --card-shadow: 0 10px 30px -5px rgba(63, 63, 63, 0.08); /* Sombra más suave */
+    --border-radius-lg: 12px;
     
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Lato', sans-serif;
@@ -38,10 +61,10 @@ body {
 
 h1, h2, h3, h4 {
     font-family: var(--font-heading);
-    color: var(--color-dark-red); /* Títulos en rojo oscuro o negro? User dijo rojo protagonista. Vamos con rojo para titulos clave */
+    color: var(--color-grey-dark); /* Texto principal Gris Oscuro */
     line-height: 1.2;
     font-weight: 500;
-    letter-spacing: 3px;
+    letter-spacing: 1px; /* Reducido un poco para Montserrat */
 }
 
 a {
@@ -67,8 +90,8 @@ ul {
 /* Botones */
 .btn-primary {
     display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: var(--primary-color); /* Dorado */
+    color: var(--color-grey-dark); /* Texto oscuro para contraste en fondo dorado */
     padding: 14px 32px;
     border-radius: 50px;
     font-weight: 700;
@@ -141,18 +164,18 @@ ul {
 }
 
 .nav-links a:hover {
-    color: var(--color-red);
+    color: var(--color-gold-dark);
 }
 
 .btn-contact {
-    border: 2px solid var(--color-red);
-    color: var(--color-red) !important;
+    border: 2px solid var(--color-green-sage);
+    color: var(--color-green-sage) !important;
     padding: 10px 24px;
     border-radius: 50px;
 }
 
 .btn-contact:hover {
-    background-color: var(--color-red);
+    background-color: var(--color-green-sage);
     color: var(--white) !important;
 }
 
@@ -160,13 +183,13 @@ ul {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--color-red);
+    color: var(--color-grey-dark);
 }
 
 /* Hero Section */
 .hero {
     /* Fondo con degradado profesional */
-    background: linear-gradient(135deg, var(--color-text-main) 0%, #000000 100%);
+    background: linear-gradient(135deg, #00000089 0%, #000000ab 100%);
     color: var(--color-paper);
     text-align: center;
     padding: 120px 20px;
@@ -190,8 +213,6 @@ ul {
     /* Parallax removido */
     opacity: 0.25; /* Un poco más visible */
     z-index: 0;
-    filter: sepia(30%) contrast(110%);
-    /* will-change removed to fix background-attachment: fixed conflict */
 }
 
 .hero-content {
@@ -333,14 +354,14 @@ ul {
 
 .card-details ul li::before {
     content: '•';
-    color: var(--color-red);
+    color: var(--color-gold-main);
     position: absolute;
     left: 0;
 }
 
 .more-info {
     font-weight: 700;
-    color: var(--color-red);
+    color: var(--color-gold-dark);
     font-size: 0.95rem;
     display: flex;
     align-items: center;
@@ -352,30 +373,30 @@ ul {
 }
 
 .more-info:hover {
-    color: var(--color-dark-red);
+    color: var(--color-green-dark);
     gap: 12px;
 }
 
 .cta-simple {
     text-align: center;
     color: var(--color-text-light);
-    background-color: var(--color-beige);
+    background-color: var(--color-ivory);
     padding: 20px;
     border-radius: 8px;
     display: inline-block;
     width: 70%;
     margin-top: 40px; /* Separación superior agregada */
-    border-left: 5px solid var(--color-red);
+    border-left: 5px solid var(--color-gold-main);
 }
 
 .cta-simple a {
-    color: var(--color-red);
+    color: var(--color-gold-dark);
     font-weight: 700;
 }
 
 /* Service Details Section */
 .service-details {
-    background-color: var(--primary-color);
+    background-color: var(--color-green-sage); /* Verde calma para detalles */
     color: var(--white);
 }
 
@@ -455,7 +476,7 @@ ul {
     gap: 30px;
     font-size: 1.25rem; /* Texto paso grande */
     transition: transform 0.3s ease;
-    border-left: 5px solid var(--color-blue); /* Detalle visual */
+    border-left: 5px solid var(--color-green-sage); /* Procesos -> Verde */
 }
 
 .step:hover {
@@ -463,7 +484,7 @@ ul {
 }
 
 .step-number {
-    background-color: var(--color-blue);
+    background-color: var(--color-green-sage);
     color: var(--white);
     width: 60px;
     height: 60px;
@@ -474,7 +495,7 @@ ul {
     font-weight: 800;
     font-size: 1.5rem;
     flex-shrink: 0;
-    box-shadow: 0 5px 15px rgba(47, 95, 167, 0.3);
+    box-shadow: 0 5px 15px rgba(127, 148, 142, 0.4);
 }
 
 /* Lista USA */
@@ -508,7 +529,7 @@ ul {
 }
 
 .usa-list i {
-    color: var(--color-red);
+    color: var(--color-gold-main);
     font-size: 3rem; /* Iconos grandes */
     margin-bottom: 10px;
 }
@@ -543,7 +564,7 @@ ul {
 
 .contact-item i {
     font-size: 2rem;
-    color: var(--color-yellow);
+    color: var(--color-gold-main);
 }
 
 .contact-form {
@@ -568,7 +589,7 @@ ul {
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: var(--color-red);
+    border-color: var(--color-gold-main);
 }
 
 .copyright {
