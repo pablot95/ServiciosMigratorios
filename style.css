@@ -398,25 +398,30 @@ ul {
 .service-details {
     background-color: var(--color-green-sage); /* Verde calma para detalles */
     color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .features-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
 }
+
 
 /* Desktop: Ajuste específico para 7 elementos en formato 3-3-1 */
 @media (min-width: 1024px) {
     .features-list {
-        grid-template-columns: repeat(3, 1fr);
+        /* Aca quiero que cada columan ocupe 500px*/
+        grid-template-columns: 500px 500px;
     }
     
     .features-list li:nth-child(7) {
-        grid-column: 2; /* Centrar el último elemento en la grilla de 3 columnas */
-        width: 500px;
+        grid-column: 1; /* Centrar el último elemento en la grilla de 3 columnas */
     }
 }
 
