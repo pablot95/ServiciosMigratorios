@@ -102,4 +102,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const hero = document.querySelector('.hero');
     // PARALLAX EN CSS AHORA manejado por background-attachment: fixed para mejor performance y estabilidad
+
+    // Contact Form with EmailJS
+    const contactForm = document.getElementById('contact-form');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Mostrar estado de carga (opcional)
+            const btn = contactForm.querySelector('button');
+            const originalBtnText = btn.innerText;
+            btn.innerText = 'Enviando...';
+
+            // Estos IDs deben coincidir con tu template de EmailJS
+            const serviceID = 'service_3hpsqg3';
+            const templateID = 'template_uhl0hv6';
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    btn.innerText = '¡Enviado!';
+                    alert('¡Consulta enviada con éxito! Nos pondremos en contacto a la brevedad.');
+                    contactForm.reset();
+                    setTimeout(() => {
+                        btn.innerText = originalBtnText;
+                    }, 3000);
+                }, (err) => {
+                    btn.innerText = originalBtnText;
+                    alert('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o contáctanos por WhatsApp.');
+                    console.error('EmailJS Error:', JSON.stringify(err));
+                });
+        });
+    }
 });

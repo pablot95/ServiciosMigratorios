@@ -241,11 +241,11 @@
             <div class="contact-methods">
                 <div class="contact-item">
                     <i class="fa-solid fa-envelope"></i>
-                    <span>contacto@luzmigratoria.com</span> <!-- Email placeholder -->
+                    <span>luzmigratoria@gmail.com</span> <!-- Email placeholder -->
                 </div>
                 <div class="contact-item">
                     <i class="fa-brands fa-whatsapp"></i>
-                    <span>+54 9 11 1234 5678</span> <!-- Tel placeholder -->
+                    <span>+54 351 3637225</span> <!-- Tel placeholder -->
                 </div>
                 <div class="contact-item">
                     <i class="fa-solid fa-location-dot"></i>
@@ -253,10 +253,10 @@
                 </div>
             </div>
 
-            <form class="contact-form">
-                <input type="text" placeholder="Tu Nombre" required>
-                <input type="email" placeholder="Tu Email" required>
-                <textarea placeholder="Contanos brevemente tu caso..." rows="4" required></textarea>
+            <form class="contact-form" id="contact-form">
+                <input type="text" name="user_name" id="user_name" placeholder="Tu Nombre" required>
+                <input type="email" name="user_email" id="user_email" placeholder="Tu Email" required>
+                <textarea name="message" id="message" placeholder="Contanos brevemente tu caso..." rows="4" required></textarea>
                 <button type="submit" class="btn-primary full-width">Enviar Consulta</button>
             </form>
 
@@ -267,6 +267,12 @@
         </div>
     </footer>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("hADhscRXTyE_DzOA3");
+        })();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
